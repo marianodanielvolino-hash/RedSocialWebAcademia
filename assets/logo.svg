@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Fundación Red Social">
+  <rect width="128" height="128" rx="30" fill="#2E2117"/>
+  <circle cx="48" cy="64" r="28" fill="#ED1686"/>
+  <circle cx="78" cy="52" r="23" fill="#FF9E19" opacity=".94"/>
+  <circle cx="75" cy="80" r="18" fill="#F7F1E7" opacity=".92"/>
+  <circle cx="59" cy="44" r="12" fill="#D98A3D"/>
+</svg>
