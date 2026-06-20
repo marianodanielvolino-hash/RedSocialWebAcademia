@@ -1,26 +1,64 @@
-# Red Social — Web + Academia
+# Fundación Red Social — Web + Academia
 
-Sitio público, portal privado y panel de administración de **Fundación Red Social**.
-Sistema visual humanista: títulos en serif (Newsreader), cuerpo en Hanken Grotesk,
-paleta cálida (papel / arena / umber) con magenta y naranja de marca como acentos planos.
+Sitio institucional, academia y portal demostrativo de **Fundación Red Social**.
 
-## Contenido
+Esta versión ordena el prototipo actual para poder publicarlo correctamente en GitHub Pages y separar con claridad:
 
-| Archivo | Descripción |
+- Web pública institucional.
+- Portal privado demostrativo.
+- Panel administrador demo.
+- Documentos técnicos.
+- Assets visuales mínimos.
+
+## Estructura
+
+```text
+/
+├── index.html
+├── portal.html
+├── admin-demo.html
+├── assets/
+│   ├── logo.svg
+│   ├── css/
+│   │   └── styles.css
+│   └── images/
+│       └── og-red-social.svg
+├── docs/
+│   └── documentos-tecnicos/
+├── archive/
+│   └── prototipos-anteriores/
+├── .nojekyll
+└── README.md
+```
+
+## Publicación en GitHub Pages
+
+Configuración sugerida:
+
+- Branch: `main`
+- Folder: `/root`
+- Entry file: `index.html`
+
+## Qué contiene cada archivo
+
+| Archivo | Uso |
 |---|---|
-| `Landing Publica.dc.html` | Sitio público institucional |
-| `Portal Red Social.dc.html` | Portal privado: prelogin, encuesta de madurez, login, dashboard y panel Admin (12 módulos) |
-| `Red Social Web Integral.dc.html` | Sitio + portal unidos en un solo documento navegable |
-| `support.js` | Runtime necesario para abrir los `.dc.html` |
-| `assets/` | Logo y recursos de marca |
-| `standalone/*.html` | Versiones autocontenidas (un solo archivo, funcionan offline, sin dependencias) |
+| `index.html` | Landing pública institucional |
+| `portal.html` | Portal demostrativo: diagnóstico, academia, biblioteca, proyectos y reportes |
+| `admin-demo.html` | Panel interno demostrativo, separado de la web pública |
+| `assets/css/styles.css` | Sistema visual base |
+| `assets/logo.svg` | Marca mínima en SVG |
+| `assets/images/og-red-social.svg` | Imagen social para compartir |
 
-## Cómo verlo
+## Estado
 
-- **Rápido / offline:** abrí cualquier archivo de `standalone/` directamente en el navegador.
-- **Fuentes editables:** serví la carpeta con un servidor estático (los `.dc.html` cargan `support.js`):
-  ```bash
-  npx serve .
-  ```
+Sprint 1 — versión publicable inicial.
 
-Todas las versiones son responsive (breakpoints 1000 / 760 / 600 px).
+## Próximos pasos recomendados
+
+1. Reemplazar datos de contacto reales.
+2. Completar equipo, consejo directivo y aliados.
+3. Incorporar documentos técnicos reales en `/docs`.
+4. Conectar formulario de diagnóstico.
+5. Definir si el portal será solo demo o producto real.
+6. Mover HTML anteriores `.dc.html` y ZIP a `/archive/prototipos-anteriores/` si ya no se usan.
