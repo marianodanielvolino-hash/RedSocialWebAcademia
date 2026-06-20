@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fundación Red Social</title>
+  <meta name="description" content="Sitio público institucional de Fundación Red Social.">
+  <meta name="theme-color" content="#2E2117">
+  <style>
+    html,body{height:100%;margin:0;background:#2E2117;color:#F7F1E7;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;}
+    main{min-height:100%;display:grid;place-items:center;text-align:center;padding:32px;}
+    a{color:#FF9E19;}
+  </style>
+</head>
+<body>
+  <main>
+    <div>
+      <h1>Cargando Fundación Red Social…</h1>
+      <p>Si no carga automáticamente, abrí la <a href="Landing%20Publica.dc.html">landing pública</a>.</p>
+    </div>
+  </main>
+  <script>
+    (async function(){
+      try {
+        const response = await fetch('Landing%20Publica.dc.html', { cache: 'no-store' });
+        if (!response.ok) throw new Error('No se pudo cargar la landing');
+        let html = await response.text();
+        html = html.replaceAll('assets/logo-red-social.png', 'assets/logo-red-social.svg');
+        document.open();
+        document.write(html);
+        document.close();
+      } catch (error) {
+        console.error(error);
+      }
+    })();
+  </script>
+</body>
+</html>
