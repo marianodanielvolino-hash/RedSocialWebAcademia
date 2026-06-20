@@ -87,6 +87,136 @@
     };
   }
 
+  function getText(node) {
+    return (node && node.textContent ? node.textContent : "").replace(/\s+/g, " ").trim();
+  }
+
+  function addClass(node, className) {
+    if (node && className) {
+      className.split(/\s+/).forEach(function (singleClass) {
+        if (singleClass) node.classList.add(singleClass);
+      });
+    }
+  }
+
+  function enhanceHeader() {
+    document.querySelectorAll("header").forEach(function (header) {
+      addClass(header, "frs-site-header");
+      var shell = header.querySelector(":scope > div") || header.firstElementChild;
+      addClass(shell, "frs-nav-shell");
+
+      var nav = header.querySelector("nav");
+      addClass(nav, "frs-nav");
+
+      if (!nav) return;
+      nav.querySelectorAll("a").forEach(function (link) {
+        var text = getText(link).toLowerCase();
+        var href = link.getAttribute("href") || "";
+        if (text === "portal" || href.indexOf("Portal") >= 0) {
+          addClass(link, "frs-btn-primary frs-btn-small");
+        } else {
+          addClass(link, "frs-nav-link");
+        }
+      });
+    });
+  }
+
+  function enhanceHeroCtas() {
+    document.querySelectorAll("a").forEach(function (link) {
+      var text = getText(link).toLowerCase();
+      if (/conocer|sumate|ingresar|acceder|enviar|postular/.test(text)) {
+        addClass(link, "frs-btn-primary");
+      }
+      if (/ver el método|ver metodo|más información|mas información|descargar|conocer más|conocer mas/.test(text)) {
+        addClass(link, "frs-btn-secondary");
+      }
+    });
+
+    document.querySelectorAll("section div").forEach(function (row) {
+      var style = row.getAttribute("style") || "";
+      if (style.indexOf("display:flex") >= 0 && style.indexOf("flex-wrap:wrap") >= 0 && row.querySelector("a")) {
+        addClass(row, "frs-hero-cta-row");
+      }
+    });
+  }
+
+  function enhanceCards() {
+    document.querySelectorAll("div").forEach(function (node) {
+      var style = node.getAttribute("style") || "";
+      var hasCardShape = style.indexOf("border-radius") >= 0 && style.indexOf("border:") >= 0;
+      var hasSoftBg = style.indexOf("background:#fff") >= 0 || style.indexOf("background:rgba(255,250,242") >= 0 || style.indexOf("background:#FFFAF2") >= 0;
+      var hasGridParent = node.parentElement && ((node.parentElement.getAttribute("style") || "").indexOf("display:grid") >= 0);
+
+      if (hasCardShape && (hasSoftBg || hasGridParent)) {
+        addClass(node, "frs-card-lift");
+        if (style.indexOf("background:#fff") >= 0) addClass(node, "frs-card-solid");
+        else addClass(node, "frs-card");
+      }
+    });
+  }
+
+  function enhanceSectionKickers() {
+    document.querySelectorAll("div").forEach(function (node) {
+      var text = getText(node);
+      var style = node.getAttribute("style") || "";
+      var likelyKicker = style.indexOf("letter-spacing:0.16em") >= 0 || style.indexOf("letter-spacing:0.14em") >= 0;
+      var shortText = text.length > 0 && text.length <= 42;
+      if (likelyKicker && shortText) {
+        addClass(node, "frs-section-kicker");
+      }
+    });
+  }
+
+  function enhanceStats() {
+    document.querySelectorAll("div").forEach(function (node) {
+      var style = node.getAttribute("style") || "";
+      if (style.indexOf("font-size:40px") >= 0 && style.indexOf("font-weight:600") >= 0) {
+        addClass(node, "frs-stat-number");
+      }
+      if (style.indexOf("rgba(255,250,242,0.62)") >= 0) {
+        addClass(node, "frs-stat-label");
+      }
+    });
+  }
+
+  function applyVisualRefactor() {
+    if (!document.body) return;
+    document.body.classList.add("frs-page", "frs-enhanced");
+    enhanceHeader();
+    enhanceHeroCtas();
+    enhanceCards();
+    enhanceSectionKickers();
+    enhanceStats();
+  }
+
+  function scheduleVisualRefactor() {
+    var runs = 0;
+    var maxRuns = 8;
+
+    function run() {
+      runs += 1;
+      applyVisualRefactor();
+      if (runs < maxRuns) window.setTimeout(run, 250);
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", run, { once: true });
+    } else {
+      run();
+    }
+
+    if (window.MutationObserver) {
+      var observer = new MutationObserver(function () {
+        applyVisualRefactor();
+      });
+      var startObserver = function () {
+        if (document.body) observer.observe(document.body, { childList: true, subtree: true });
+      };
+      if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", startObserver, { once: true });
+      else startObserver();
+    }
+  }
+
   function boot() {
     configureTailwind();
     loadCss("frs-ui-css", "./assets/frs-ui.css");
@@ -101,6 +231,8 @@
     loadScript("dc-runtime-original", ORIGINAL_DC_RUNTIME_URL).catch(function (err) {
       console.error("[FRS] No se pudo cargar el runtime DC original", err);
     });
+
+    scheduleVisualRefactor();
   }
 
   boot();
