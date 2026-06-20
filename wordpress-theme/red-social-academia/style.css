@@ -1,0 +1,20 @@
+/*
+Theme Name: Fundación Red Social Academia
+Theme URI: https://github.com/marianodanielvolino-hash/RedSocialWebAcademia
+Author: Fundación Red Social
+Author URI: https://github.com/marianodanielvolino-hash
+Description: Theme WordPress institucional para Fundación Red Social: landing pública, portal privado y academia con sistema visual humanista.
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.6
+Requires PHP: 7.4
+License: GPL-2.0-or-later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: red-social-academia
+Tags: education, nonprofit, landing-page, portal, custom-theme
+*/
+
+/*
+  Los estilos reales del theme se cargan desde assets/css/frs-ui.css.
+  Este archivo existe para que WordPress reconozca el paquete como theme instalable.
+*/
