@@ -1,0 +1,176 @@
+/* Fundación Red Social — shared UI layer
+   Capa visual común para páginas .dc.html.
+   No reemplaza los estilos existentes: agrega utilidades reutilizables para migrar por bloques. */
+
+:root {
+  --frs-papel: #F7F1E7;
+  --frs-papel-soft: #FFFAF2;
+  --frs-arena: #E4D8C4;
+  --frs-arena-soft: #EFE6D6;
+  --frs-tierra: #33281F;
+  --frs-umber: #2E2117;
+  --frs-texto-suave: #5C4F42;
+  --frs-magenta: #ED1686;
+  --frs-magenta-dark: #B3115F;
+  --frs-naranja: #FF9E19;
+  --frs-cobre: #D98A3D;
+  --frs-grad: linear-gradient(135deg, #ED1686 0%, #FF9E19 100%);
+}
+
+.frs-page {
+  background: var(--frs-papel);
+  color: var(--frs-tierra);
+  font-family: 'Hanken Grotesk', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.frs-title {
+  font-family: 'Newsreader', Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+.frs-container {
+  width: 100%;
+  max-width: 1180px;
+  margin-inline: auto;
+  padding-inline: 40px;
+}
+
+.frs-section {
+  padding-block: 92px;
+}
+
+.frs-kicker,
+.frs-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: 'Hanken Grotesk', system-ui, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--frs-naranja);
+}
+
+.frs-kicker::before,
+.frs-pill::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+.frs-btn-primary,
+.frs-btn-secondary,
+.frs-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border-radius: 13px;
+  font-family: 'Hanken Grotesk', system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+  min-height: 48px;
+  padding: 15px 24px;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
+}
+
+.frs-btn-primary {
+  background: var(--frs-grad);
+  color: #fff;
+  box-shadow: 0 14px 32px rgba(237, 22, 134, 0.28);
+}
+
+.frs-btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 38px rgba(237, 22, 134, 0.34);
+}
+
+.frs-btn-secondary {
+  background: rgba(255, 250, 242, 0.08);
+  color: var(--frs-papel);
+  border: 1px solid rgba(255, 250, 242, 0.24);
+}
+
+.frs-btn-secondary:hover {
+  background: rgba(255, 250, 242, 0.13);
+}
+
+.frs-btn-ghost {
+  background: rgba(255, 250, 242, 0.76);
+  color: var(--frs-tierra);
+  border: 1px solid var(--frs-arena);
+}
+
+.frs-card {
+  background: rgba(255, 250, 242, 0.72);
+  border: 1px solid var(--frs-arena);
+  border-radius: 20px;
+  box-shadow: 0 12px 28px rgba(46, 33, 23, 0.08);
+}
+
+.frs-card-solid {
+  background: #fff;
+  border: 1px solid var(--frs-arena);
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(33, 4, 30, 0.04);
+}
+
+.frs-gradient-text {
+  background: var(--frs-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.frs-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.frs-panel-dark {
+  background: var(--frs-umber);
+  color: var(--frs-papel);
+}
+
+.frs-muted {
+  color: var(--frs-texto-suave);
+}
+
+.frs-grid-2,
+.frs-grid-3,
+.frs-grid-4 {
+  display: grid;
+  gap: 20px;
+}
+
+.frs-grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.frs-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.frs-grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+@media (max-width: 1000px) {
+  .frs-grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .frs-grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 760px) {
+  .frs-container { padding-inline: 22px; }
+  .frs-section { padding-block: 56px; }
+  .frs-grid-2,
+  .frs-grid-3,
+  .frs-grid-4 { grid-template-columns: 1fr; }
+  .frs-btn-primary,
+  .frs-btn-secondary,
+  .frs-btn-ghost { width: 100%; }
+}
