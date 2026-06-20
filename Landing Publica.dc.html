@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<template id="__bundler_thumbnail" data-bg-color="#2E2117">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#2E2117"/>
+    <circle cx="470" cy="400" r="150" fill="#ED1686"/>
+    <circle cx="700" cy="340" r="120" fill="#FF9E19" opacity="0.92"/>
+    <circle cx="640" cy="500" r="96" fill="#F7F1E7" opacity="0.9"/>
+    <circle cx="540" cy="300" r="64" fill="#D98A3D"/>
+  </svg>
+</template>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,16..72,400;0,16..72,500;0,16..72,600;1,16..72,400;1,16..72,500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;background:#F7F1E7;scroll-behavior:smooth;}
+body{-webkit-font-smoothing:antialiased;}
+h1,h2,h3,h4{font-family:'Newsreader',Georgia,serif;font-weight:500;letter-spacing:-0.01em;}
+::selection{background:#ED1686;color:#fff;}
+a{color:inherit;text-decoration:none;}
+input,select,textarea{font-family:'Hanken Grotesk',sans-serif;}
+input:focus,select:focus,textarea:focus{outline:none;border-color:#ED1686;box-shadow:0 0 0 3px rgba(237,22,134,0.12);}
+
+/* responsive */
+img,svg,canvas{max-width:100%;}
+@media (max-width:1000px){
+  [style*="repeat(6, 1fr)"]{grid-template-columns:repeat(3,1fr)!important;}
+  [style*="repeat(5, 1fr)"]{grid-template-columns:repeat(3,1fr)!important;}
+  [style*="repeat(4, 1fr)"]{grid-template-columns:repeat(2,1fr)!important;}
+  [style*="grid-template-columns: 1fr 1.1fr"]{grid-template-columns:1fr!important;}
+  [style*="grid-template-columns: 1fr 1.4fr"]{grid-template-columns:1fr!important;}
+  [style*="grid-template-columns: 1.3fr 1fr"]{grid-template-columns:1fr!important;}
+  [style*="grid-template-columns: 1fr 1.5fr"]{grid-template-columns:1fr!important;}
+  [style*="grid-template-columns: 1.6fr 1fr"]{grid-template-columns:1fr!important;}
+  [style*="grid-template-columns: 280px 1fr"]{grid-template-columns:1fr!important;}
+  [style*="grid-template-columns: 1fr 1fr; gap:"]{grid-template-columns:1fr!important;}
+}
+@media (max-width:760px){
+  [style*="repeat(3, 1fr)"]{grid-template-columns:repeat(2,1fr)!important;}
+  [style*="repeat(2, 1fr)"]{grid-template-columns:1fr!important;}
+  [style*="grid-template-columns: 1fr 1fr 1fr"]{grid-template-columns:1fr!important;}
+  h1[style*="font-size: 70px"]{font-size:38px!important;}
+  h1[style*="font-size: 64px"]{font-size:36px!important;}
+  h2[style*="font-size: 54px"]{font-size:32px!important;}
+  h2[style*="font-size: 46px"]{font-size:29px!important;}
+  h1[style*="font-size: 32px"]{font-size:25px!important;}
+  [style*="font-size: 21px"]{font-size:17px!important;}
+  [style*="font-size: 20px"]{font-size:16px!important;}
+  [style*="padding: 92px 40px"]{padding:54px 22px!important;}
+  [style*="padding: 104px 40px"]{padding:62px 22px!important;}
+  [style*="padding: 80px 40px"]{padding:50px 22px!important;}
+  nav[style*="gap: 26px"]{flex-wrap:wrap!important;gap:12px!important;}
+  [style*="width: 262px"]{width:188px!important;}
+  [style*="padding: 30px 34px 56px"]{padding:22px 16px 44px!important;}
+  [style*="padding: 18px 34px"]{padding:14px 16px!important;}
+}
+@media (max-width:600px){
+  [style*="repeat(6, 1fr)"]{grid-template-columns:repeat(2,1fr)!important;}
+  [style*="repeat(5, 1fr)"]{grid-template-columns:repeat(2,1fr)!important;}
+  [style*="repeat(3, 1fr)"]{grid-template-columns:1fr!important;}
+}</style>
+</helmet>
+
+<div style="background:#F7F1E7;color:#33281F;font-family:'Hanken Grotesk',sans-serif;">
+
+  <!-- HEADER -->
+  <header style="position:sticky;top:0;z-index:20;background:rgba(255,250,242,0.9);backdrop-filter:blur(10px);border-bottom:1px solid #E4D8C4;">
+    <div style="max-width:1180px;margin:0 auto;padding:14px 40px;display:flex;align-items:center;justify-content:space-between;">
+      <a href="#top" style="display:flex;align-items:center;"><img src="assets/logo-red-social.png" alt="Fundación Red Social" style="height:34px;width:auto;display:block;" /></a>
+      <nav style="display:flex;align-items:center;gap:26px;">
+        <a href="#institucional" style="font-size:14.5px;font-weight:500;color:#5C4F42;">Institucional</a>
+        <a href="#metodo" style="font-size:14.5px;font-weight:500;color:#5C4F42;">Método</a>
+        <a href="#equipo" style="font-size:14.5px;font-weight:500;color:#5C4F42;">Equipo</a>
+        <a href="#sumate" style="font-size:14.5px;font-weight:500;color:#5C4F42;">Sumate</a>
+        <a href="#casos" style="font-size:14.5px;font-weight:500;color:#5C4F42;">Casos</a>
+        <a href="Portal Red Social.dc.html" style="background:{{ grad }};color:#fff;font-family:'Hanken Grotesk',sans-serif;font-size:14px;font-weight:600;padding:11px 20px;border-radius:11px;box-shadow:0 8px 20px rgba(237,22,134,0.26);">Portal</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="top" style="position:relative;overflow:hidden;background:#2E2117;color:#F7F1E7;">
+    <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(95% 75% at 82% -8%, rgba(237,22,134,0.32), transparent 56%),radial-gradient(80% 65% at -8% 112%, rgba(255,158,25,0.2), transparent 55%);"></div>
+    <div style="position:relative;max-width:1180px;margin:0 auto;padding:92px 40px 100px;">
+      <div style="max-width:800px;">
+        <div style="display:inline-flex;align-items:center;gap:9px;font-family:'Hanken Grotesk',sans-serif;font-size:12px;letter-spacing:0.14em;color:#FF9E19;text-transform:uppercase;margin-bottom:28px;">
+          <span style="width:6px;height:6px;border-radius:50%;background:#FF9E19;"></span>Fundación habilitada · desde 2017
+        </div>
+        <h1 style="font-size:70px;line-height:1.0;font-weight:600;letter-spacing:-0.025em;margin:0 0 26px;">Fortalecemos instituciones y ciudadanía.</h1>
+        <p style="font-size:21px;line-height:1.55;color:rgba(255,250,242,0.8);margin:0 0 40px;max-width:680px;">Una organización de la sociedad civil que investiga, diseña, capacita e implementa herramientas para que gobiernos, organismos y comunidades resuelvan mejor los problemas públicos de su tiempo.</p>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;">
+          <a href="#institucional" style="background:{{ grad }};color:#fff;font-size:16px;font-weight:600;padding:17px 30px;border-radius:13px;box-shadow:0 14px 32px rgba(237,22,134,0.36);">Conocer la Fundación</a>
+          <a href="#metodo" style="background:rgba(255,250,242,0.07);color:#F7F1E7;border:1px solid rgba(255,250,242,0.24);font-size:16px;font-weight:500;padding:17px 30px;border-radius:13px;">Ver el método</a>
+        </div>
+      </div>
+      <div style="margin-top:78px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;border-top:1px solid rgba(255,250,242,0.14);padding-top:34px;">
+        <sc-for list="{{ stats }}" as="s" hint-placeholder-count="4">
+          <div>
+            <div style="font-family:'Hanken Grotesk',sans-serif;font-size:40px;font-weight:600;color:#F7F1E7;line-height:1;">{{ s.value }}</div>
+            <div style="font-size:14px;color:rgba(255,250,242,0.62);margin-top:10px;line-height:1.4;">{{ s.label }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <section style="background:#F7F1E7;border-bottom:1px solid #E4D8C4;">
+    <div style="max-width:1180px;margin:0 auto;padding:32px 40px;display:flex;align-items:center;gap:40px;flex-wrap:wrap;justify-content:space-between;">
+      <div style="font-family:'Hanken Grotesk',sans-serif;font-size:11.5px;letter-spacing:0.12em;text-transform:uppercase;color:#A89A88;">Trabajamos con</div>
+      <div style="display:flex;align-items:center;gap:42px;flex-wrap:wrap;">
+        <sc-for list="{{ partners }}" as="p" hint-placeholder-count="4">
+          <span style="font-size:17px;font-weight:600;color:#8C7E6F;letter-spacing:-0.01em;">{{ p }}</span>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTITUCIONAL -->
+  <section id="institucional" style="max-width:1180px;margin:0 auto;padding:92px 40px;">
+    <div style="max-width:720px;margin-bottom:48px;">
+      <div style="font-family:'Hanken Grotesk',sans-serif;font-size:12px;letter-spacing:0.16em;color:#B3115F;text-transform:uppercase;margin-bottom:16px;">Institucional</div>
+      <h2 style="font-size:46px;font-weight:600;letter-spacing:-0.02em;line-height:1.05;margin:0 0 18px;">Una fundación para fortalecer instituciones y ciudadanía</h2>
+      <p style="font-size:18px;line-height:1.6;color:#5C4F42;margin:0;">Desde 2017 trabajamos para promover el desarrollo social, la participación ciudadana, la investigación aplicada en políticas públicas, el cuidado ambiental y la innovación institucional. Nuestros programas, diagnósticos y documentos técnicos son formas concretas de cumplir ese objeto.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px;">
+      <sc-for list="{{ objeto }}" as="o" hint-placeholder-count="5">
+        <div style="background:#fff;border:1px solid #E4D8C4;border-radius:16px;padding:24px 22px;box-shadow:0 6px 18px rgba(33,4,30,0.04);">
+          <div style="width:40px;height:40px;border-radius:12px;background:#EFE6D6;border:1px solid #E4D6BE;display:flex;align-items:center;justify-content:center;margin-bottom:18px;"><span style="display:inline-flex;width:11px;height:11px;border-radius:50%;border:2.5px solid {{ o.dot }};"></span></div>
+          <div style="font-size:16px;font-weight:600;margin-bottom:8px;line-height:1.2;letter-spacing:-0.01em;">{{ o.title }}</div>
+          <div style="font-size:13px;line-height:1.55;color:#7C6E5F;">{{ o.desc }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- HISTORIA 2017-2026 -->
+  <section id="historia" style="background:#EFE6D6;border-top:1px solid #E4D8C4;border-bottom:1px solid #E4D8C4;">
+    <div style="max-width:1180px;margin:0 auto;padding:92px 40px;">
+      <div style="max-width:700px;margin-bottom:52px;">
+        <div style="font-family:'Hanken Grotesk',sans-serif;font-size:12px;letter-spacing:0.16em;color:#B3115F;text-transform:uppercase;margin-bottom:16px;">Evolución 2017–2026</div>
+        <h2 style="font-size:46px;font-weight:600;letter-spacing:-0.02em;line-height:1.05;margin:0 0 16px;">De la misión institucional a una plataforma de implementación</h2>
+        <p style="font-size:18px;line-height:1.6;color:#5C4F42;margin:0;">En estos años pasamos de construir redes y aprendizajes a consolidar método, programas, academia, documentos técnicos y comunidad.</p>
+      </div>
+      <div style="position:relative;">
+        <div style="position:absolute;left:11px;top:8px;bottom:8px;width:2px;background:#D98A3D;opacity:0.4;"></div>
+        <div style="display:flex;flex-direction:column;gap:22px;">
+          <sc-for list="{{ timeline }}" as="t" hint-placeholder-count="10">
+            <div style="display:grid;grid-template-columns:24px 1fr;gap:26px;align-items:start;">
+              <div style="position:relative;z-index:1;width:24px;height:24px;border-radius:50%;background:#EFE6D6;border:3px solid {{ t.dot }};margin-top:2px;"></div>
+              <div style="display:flex;gap:26px;flex-wrap:wrap;align-items:baseline;background:#fff;border:1px solid #E4D8C4;border-radius:16px;padding:20px 24px;box-shadow:0 6px 18px rgba(33,4,30,0.04);">
+                <div style="font-family:'Hanken Grotesk',sans-serif;font-size:14px;font-weight:600;color:#2E2117;width:64px;flex-shrink:0;">{{ t.year }}</div>
+                <div style="flex:1;min-width:240px;">
+                  <div style="display:flex;align-items:center;gap:11px;margin-bottom:6px;flex-wrap:wrap;">
+                    <span style="font-size:17px;font-weight:600;letter-spacing:-0.01em;">{{ t.title }}</span>
+                    <span style="display:inline-flex;align-items:center;gap:6px;font-family:'Hanken Grotesk',sans-serif;font-size:10px;letter-spacing:0.05em;text-transform:uppercase;background:{{ t.stBg }};color:{{ t.stColor }};padding:3px 9px;border-radius:999px;"><span style="width:5px;height:5px;border-radius:50%;background:{{ t.stDot }};"></span>{{ t.estado }}</span>
+                  </div>
+                  <div style="font-size:14px;line-height:1.6;color:#5C4F42;">{{ t.desc }}</div>
+                </div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROPOSITO / VALORES -->
+  <section style="max-width:1180px;margin:0 auto;padding:92px 40px;">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:42px;">
+      <div style="background:#2E2117;color:#F7F1E7;border-radius:18px;padding:30px;position:relative;overflow:hidden;">
+        <div style="position:absolute;inset:0;background:radial-gradient(90% 90% at 100% 0%, rgba(237,22,134,0.28), transparent 60%);"></div>
+        <div style="position:relative;"><div style="font-family:'Hanken Grotesk',sans-serif;font-size:11px;letter-spacing:0.12em;color:#FF9E19;text-transform:uppercase;margin-bottom:16px;">Propósito</div><div style="font-size:17px;line-height:1.5;font-weight:500;">Fortalecer instituciones, comunidades y equipos para que resuelvan mejor los problemas públicos y sociales de su tiempo.</div></div>
+      </div>
+      <div style="background:#fff;border:1px solid #E4D8C4;border-radius:18px;padding:30px;box-shadow:0 6px 18px rgba(33,4,30,0.04);"><div style="font-family:'Hanken Grotesk',sans-serif;font-size:11px;letter-spacing:0.12em;color:#B3115F;text-transform:uppercase;margin-bottom:16px;">Misión</div><div style="font-size:16px;line-height:1.55;color:#40342A;">Diseñar, investigar, capacitar e implementar herramientas de gestión, participación e innovación institucional que mejoren la capacidad de gobiernos, organizaciones y comunidades.</div></div>
+      <div style="background:#fff;border:1px solid #E4D8C4;border-radius:18px;padding:30px;box-shadow:0 6px 18px rgba(33,4,30,0.04);"><div style="font-family:'Hanken Grotesk',sans-serif;font-size:11px;letter-spacing:0.12em;color:#9A5B00;text-transform:uppercase;margin-bottom:16px;">Visión</div><div style="font-size:16px;line-height:1.55;color:#40342A;">Ser una fundación referente en desarrollo social, participación ciudadana, innovación pública y arquitectura institucional aplicada en Argentina y la región.</div></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:14px;">
+      <sc-for list="{{ valores }}" as="v" hint-placeholder-count="6">
+        <div style="background:#EFE6D6;border:1px solid #E4D6BE;border-radius:14px;padding:18px 16px;">
+          <div style="font-size:14.5px;font-weight:600;margin-bottom:7px;letter-spacing:-0.01em;">{{ v.title }}</div>
+          <div style="font-size:12px;line-height:1.5;color:#7C6E5F;">{{ v.desc }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- METODO -->
+  <section id="metodo" style="background:#EFE6D6;border-top:1px solid #E4D8C4;border-bottom:1px solid #E4D8C4;">
+    <div style="max-width:1180px;margin:0 auto;padding:92px 40px;">
+      <div style="max-width:640px;margin-bottom:48px;">
+        <div style="font-family:'Hanken Grotesk',sans-serif;font-size:12px;letter-spacing:0.16em;color:#B3115F;text-transform:uppercase;margin-bottom:16px;">El método</div>
+        <h2 style="font-size:46px;font-weight:600;letter-spacing:-0.02em;line-height:1.05;margin:0 0 18px;">API Humana, en seis movimientos</h2>
+        <p style="font-size:18px;line-height:1.6;color:#5C4F42;margin:0;">No reemplazamos lo que existe: lo ordenamos y lo conectamos bajo reglas, roles y métricas comunes. De diagnóstico a mejora continua, con transferencia real en el medio.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;">
+        <sc-for list="{{ steps }}" as="st" hint-placeholder-count="6">
+          <div style="background:#fff;border:1px solid #E4D8C4;border-radius:18px;padding:26px 28px;box-shadow:0 6px 18px rgba(33,4,30,0.04);">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;">
+              <span style="font-family:'Hanken Grotesk',sans-serif;font-size:13px;color:#B3115F;">{{ st.n }}</span>
+              <span style="width:10px;height:10px;border-radius:50%;border:2.5px solid {{ st.dot }};"></span>
+            </div>
+            <div style="font-size:19px;font-weight:600;margin-bottom:9px;letter-spacing:-0.01em;">{{ st.title }}</div>
+            <div style="font-size:14px;line-height:1.6;color:#7C6E5F;">{{ st.desc }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- LINEAS -->
+  <section id="lineas" style="background:#2E2117;color:#F7F1E7;position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;background:radial-gradient(70% 80% at 88% 8%, rgba(237,22,134,0.26), transparent 55%);pointer-events:none;"></div>
+    <div style="position:relative;max-width:1180px;margin:0 auto;padding:92px 40px;">
+      <div style="max-width:680px;margin-bottom:48px;">
+        <div style="font-family:'Hanken Grotesk',sans-serif;font-size:12px;letter-spacing:0.16em;color:#FF9E19;text-transform:uppercase;margin-bottom:16px;">Líneas fundacionales</div>
+        <h2 style="font-size:46px;font-weight:600;letter-spacing:-0.02em;line-height:1.05;margin:0;">Del objeto social a la implementación</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:18px;">
+        <sc-for list="{{ lineas }}" as="a" hint-placeholder-count="4">
+          <div style="background:rgba(255,250,242,0.05);border:1px solid rgba(255,250,242,0.13);border-radius:18px;padding:30px;backdrop-filter:blur(6px);">
+            <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px;">
+              <span style="width:44px;height:44px;border-radius:13px;background:rgba(255,250,242,0.07);border:1px solid rgba(255,250,242,0.16);display:flex;align-items:center;justify-content:center;"><span style="display:inline-flex;width:12px;height:12px;border-radius:50%;border:2.5px solid {{ a.dot }};"></span></span>
+              <div style="font-size:20px;font-weight:600;letter-spacing:-0.01em;">{{ a.title }}</div>
+            </div>
+            <div style="font-size:14.5px;line-height:1.6;color:rgba(255,250,242,0.7);margin-bottom:14px;">{{ a.desc }}</div>
+            <div style="font-family:'Hanken Grotesk',sans-serif;font-size:11.5px;color:rgba(255,250,242,0.55);line-height:1.7;">{{ a.tags }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACADEMIA -->
+  <section id="academia" style="max-width:1180px;margin:0 auto;padding:92px 40px;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center;">
+      <div>
+        <div style="font-family:'Hanken Grotesk',sans-serif;font-size:12px;letter-spacing:0.16em;color:#B3115F;text-transform:uppercase;margin-bottom:16px;">Academia y biblioteca</div>
+        <h2 style="font-size:46px;font-weight:600;letter-spacing:-0.02em;line-height:1.05;margin:0 0 18px;">Conocimiento que se vuelve capacidad</h2>
+        <p style="font-size:18px;line-height:1.6;color:#5C4F42;margin:0 0 28px;">Doce cursos en tres niveles y catorce documentos técnicos curados: formación y respaldo alineados, para que los equipos incorporen criterios comunes y prácticas sostenibles.</p>
+        <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:32px;">
+          <div style="display:flex;align-items:center;gap:13px;"><span style="width:22px;height:22px;border-radius:50%;background:rgba(40,160,107,0.14);display:flex;align-items:center;justify-content:center;color:#1F6E4A;font-size:13px;flex-shrink:0;">✓</span><span style="font-size:15px;color:#40342A;">Trayectos por rol y nivel de madurez</span></div>
+          <div style="display:flex;align-items:center;gap:13px;"><span style="width:22px;height:22px;border-radius:50%;background:rgba(40,160,107,0.14);display:flex;align-items:center;justify-content:center;color:#1F6E4A;font-size:13px;flex-shrink:0;">✓</span><span style="font-size:15px;color:#40342A;">Seguimiento de avance y certificación</span></div>
+          <div style="display:flex;align-items:center;gap:13px;"><span style="width:22px;height:22px;border-radius:50%;background:rgba(40,160,107,0.14);display:flex;align-items:center;justify-content:center;color:#1F6E4A;font-size:13px;flex-shrink:0;">✓</span><span style="font-size:15px;color:#40342A;">Material alineado a la biblioteca técnica</span></div>
+        </div>
+        <a href="Portal Red Social.dc.html" style="background:{{ grad }};color:#fff;font-size:16px;font-weight:600;padding:16px 28px;border-radius:13px;display:inline-block;box-shadow:0 12px 28px rgba(237,22,134,0.28);">Explorar la academia</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <sc-for list="{{ docs }}" as="d" hint-placeholder-count="3">
+          <div style="background:#fff;border:1px solid #E4D8C4;border-radius:16px;padding:22px 24px;box-shadow:0 6px 18px rgba(33,4,30,0.04);">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:11px;">
+              <span style="font-family:'Hanken Grotesk',sans-serif;font-size:14px;font-weight:600;color:#2E2117;">{{ d.code }}</span>
+              <span style="font-family:'Hanken Grotesk',sans-serif;font-size:11px;color:#A89A88;">{{ d.cat }}</span>
+            </div>
+            <div style="font-size:16.5px;font-weight:600;line-height:1.25;margin-bottom:7px;">{{ d.title }}</div>
+            <div style="font-size:13px;line-height:1.55;color:#7C6E5F;">{{ d.sum }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- EQUIPO -->
+  <section id="equipo" style="background:#EFE6D6;border-top:1px solid #E4D8C4;border-bottom:1px solid #E4D8C4;">
+    <div style="max-width:1180px;margin:0 auto;padding:92px 40px;">
+      <div style="max-width:700px;margin-bottom:42px;">
+        <div style="font-family:'Hanken Grotesk',sans-serif;font-size:12px;letter-spacing:0.16em;color:#B3115F;text-transform:uppercase;margin-bottom:16px;">Equipo</div>
+        <h2 style="font-size:46px;font-weight:600;letter-spacing:-0.02em;line-height:1.05;margin:0 0 16px;">Un equipo interdisciplinario para problemas complejos</h2>
+        <p style="font-size:18px;line-height:1.6;color:#5C4F42;margin:0;">Integramos estrategia, gestión pública, procesos, tecnología, diseño, formación y territorio. Los problemas públicos complejos no se resuelven desde una sola disciplina: requieren método, escucha, coordinación, evidencia y capacidad de implementación.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+        <sc-for list="{{ team }}" as="m" hint-placeholder-count="9">
+          <div style="background:#fff;border:1px solid #E4D8C4;border-radius:16px;padding:24px;box-shadow:0 6px 18px rgba(33,4,30,0.04);">
+            <div style="display:flex;align-items:center;gap:14px;margin-bottom:15px;">
+              <div style="width:50px;height:50px;border-radius:50%;background:#ED1686;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:600;font-size:16px;flex-shrink:0;">{{ m.ini }}</div>
+              <div style="min-width:0;">
+                <div style="font-size:15.5px;font-weight:600;line-height:1.2;">{{ m.name }}</div>
+                <div style="font-family:'Hanken Grotesk',sans-serif;font-size:10.5px;color:#B3115F;margin-top:4px;">{{ m.role }}</div>
+              </div>
+            </div>
+            <div style="font-size:13px;line-height:1.55;color:#7C6E5F;">{{ m.desc }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUMATE -->
+  <section id="sumate" style="max-width:1180px;margin:0 auto;padding:92px 40px;">
+    <div style="max-width:700px;margin-bottom:42px;">
+      <div style="font-family:'Hanken Grotesk',sans-serif;font-size:12px;letter-spacing:0.16em;color:#B3115F;text-transform:uppercase;margin-bottom:16px;">Comunidad</div>
+      <h2 style="font-size:46px;font-weight:600;letter-spacing:-0.02em;line-height:1.05;margin:0 0 16px;">Sumate a la Red</h2>
+      <p style="font-size:18px;line-height:1.6;color:#5C4F42;margin:0;">Una red no se declara: se construye. Personas, organizaciones, universidades, gobiernos y equipos pueden aportar tiempo, conocimiento, recursos o capacidades para mejorar lo público.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-bottom:30px;">
+      <sc-for list="{{ comunidad }}" as="m" hint-placeholder-count="5">
+        <div style="background:#fff;border:1px solid #E4D8C4;border-radius:16px;padding:22px;box-shadow:0 6px 18px rgba(33,4,30,0.04);">
+          <div style="font-size:16px;font-weight:600;margin-bottom:8px;letter-spacing:-0.01em;">{{ m.title }}</div>
+          <div style="font-size:12.5px;line-height:1.55;color:#7C6E5F;">{{ m.desc }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1.1fr;gap:24px;align-items:stretch;">
+      <!-- voluntariado form -->
+      <div style="background:#fff;border:1px solid #E4D8C4;border-radius:20px;padding:34px;box-shadow:0 6px 18px rgba(33,4,30,0.04);">
+        <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;align-items:flex-start;height:100%;justify-content:center;min-height:380px;">
+            <div style="width:54px;height:54px;border-radius:50%;background:rgba(40,160,107,0.14);display:flex;align-items:center;justify-content:center;color:#1F6E4A;font-size:24px;margin-bottom:20px;">✓</div>
+            <h3 style="font-size:24px;font-weight:600;letter-spacing:-0.01em;margin:0 0 12px;">¡Gracias por sumarte!</h3>
+            <p style="font-size:15px;line-height:1.6;color:#5C4F42;margin:0 0 24px;">Vamos a revisar tu información y contactarte cuando identifiquemos una oportunidad de participación alineada a tu perfil.</p>
+            <button onClick="{{ resetForm }}" style="background:transparent;border:1px solid #D8C9B4;color:#5C4F42;font-size:14px;font-weight:500;padding:11px 20px;border-radius:11px;cursor:pointer;">Enviar otra postulación</button>
+          </div>
+        </sc-if>
+        <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+          <div>
+            <div style="font-family:'Hanken Grotesk',sans-serif;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#B3115F;margin-bottom:10px;">Voluntariado</div>
+            <h3 style="font-size:24px;font-weight:600;letter-spacing:-0.01em;margin:0 0 8px;">Quiero sumarme como voluntario/a</h3>
+            <p style="font-size:14px;line-height:1.55;color:#7C6E5F;margin:0 0 24px;">Si querés aportar tiempo, conocimiento o experiencia para fortalecer lo público, contanos cómo te gustaría participar.</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
+              <div><label style="display:block;font-family:'Hanken Grotesk',sans-serif;font-size:10.5px;letter-spacing:0.06em;text-transform:uppercase;color:#8C7E6F;margin-bottom:6px;">Nombre y apellido</label><input type="text" placeholder="Tu nombre" style="width:100%;background:#fff;border:1px solid #E0D2BC;border-radius:10px;padding:11px 13px;font-size:14px;color:#33281F;" /></div>
+              <div><label style="display:block;font-family:'Hanken Grotesk',sans-serif;font-size:10.5px;letter-spacing:0.06em;text-transform:uppercase;color:#8C7E6F;margin-bottom:6px;">Email</label><input type="email" placeholder="tu@email.com" style="width:100%;background:#fff;border:1px solid #E0D2BC;border-radius:10px;padding:11px 13px;font-size:14px;color:#33281F;" /></div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
+              <div><label style="display:block;font-family:'Hanken Grotesk',sans-serif;font-size:10.5px;letter-spacing:0.06em;text-transform:uppercase;color:#8C7E6F;margin-bottom:6px;">Área de experiencia</label><select style="width:100%;background:#fff;border:1px solid #E0D2BC;border-radius:10px;padding:11px 13px;font-size:14px;color:#33281F;"><option>Gestión pública</option><option>Participación ciudadana</option><option>Comunicación</option><option>Diseño</option><option>Tecnología</option><option>Datos e indicadores</option><option>Capacitación</option><option>Investigación</option><option>Ambiente</option><option>Legales / institucional</option></select></div>
+              <div><label style="display:block;font-family:'Hanken Grotesk',sans-serif;font-size:10.5px;letter-spacing:0.06em;text-transform:uppercase;color:#8C7E6F;margin-bottom:6px;">Disponibilidad</label><select style="width:100%;background:#fff;border:1px solid #E0D2BC;border-radius:10px;padding:11px 13px;font-size:14px;color:#33281F;"><option>Algunas horas por mes</option><option>Algunas horas por semana</option><option>Participación por proyecto</option><option>Jornadas puntuales</option></select></div>
+            </div>
+            <div style="margin-bottom:16px;"><label style="display:block;font-family:'Hanken Grotesk',sans-serif;font-size:10.5px;letter-spacing:0.06em;text-transform:uppercase;color:#8C7E6F;margin-bottom:6px;">¿Por qué querés sumarte?</label><textarea rows="3" placeholder="Contanos brevemente qué te gustaría aportar." style="width:100%;background:#fff;border:1px solid #E0D2BC;border-radius:10px;padding:11px 13px;font-size:14px;color:#33281F;resize:vertical;"></textarea></div>
+            <label style="display:flex;align-items:center;gap:9px;font-size:13px;color:#5C4F42;margin-bottom:20px;cursor:pointer;"><input type="checkbox" style="width:16px;height:16px;accent-color:#ED1686;" />Acepto ser contactado/a por Fundación Red Social.</label>
+            <button onClick="{{ submitForm }}" style="width:100%;background:{{ grad }};color:#fff;border:none;font-size:15px;font-weight:600;padding:14px;border-radius:12px;cursor:pointer;box-shadow:0 10px 24px rgba(237,22,134,0.26);">Enviar postulación</button>
+          </div>
+        </sc-if>
+      </div>
+
+      <!-- quiero aportar -->
+      <div style="display:flex;flex-direction:column;gap:18px;">
+        <div style="position:relative;overflow:hidden;background:#2E2117;color:#F7F1E7;border-radius:20px;padding:32px;">
+          <div style="position:absolute;inset:0;background:radial-gradient(80% 90% at 100% 0%, rgba(237,22,134,0.26), transparent 58%);"></div>
+          <div style="position:relative;">
+            <div style="font-family:'Hanken Grotesk',sans-serif;font-size:11px;letter-spacing:0.12em;color:#FF9E19;text-transform:uppercase;margin-bottom:14px;">Quiero aportar</div>
+            <h3 style="font-size:24px;font-weight:600;letter-spacing:-0.01em;line-height:1.15;margin:0 0 12px;">Tu aporte se convierte en conocimiento, formación y capacidad instalada</h3>
+            <p style="font-size:14.5px;line-height:1.6;color:rgba(255,250,242,0.74);margin:0 0 22px;">Cada contribución sostiene documentos técnicos, becas de capacitación, herramientas abiertas, pilotos territoriales e investigación aplicada.</p>
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              <sc-for list="{{ aportes }}" as="ap" hint-placeholder-count="5">
+                <div style="display:flex;align-items:center;gap:13px;background:rgba(255,250,242,0.06);border:1px solid rgba(255,250,242,0.13);border-radius:12px;padding:13px 16px;">
+                  <span style="width:8px;height:8px;border-radius:50%;background:{{ ap.dot }};flex-shrink:0;"></span>
+                  <div style="flex:1;"><div style="font-size:14px;font-weight:600;">{{ ap.title }}</div><div style="font-size:12.5px;color:rgba(255,250,242,0.6);line-height:1.4;margin-top:2px;">{{ ap.desc }}</div></div>
+                </div>
+              </sc-for>
+            </div>
+            <a href="mailto:contacto@redsocial.org" style="display:block;text-align:center;margin-top:20px;background:{{ grad }};color:#fff;font-size:15px;font-weight:600;padding:14px;border-radius:12px;box-shadow:0 12px 28px rgba(237,22,134,0.3);">Quiero aportar</a>
+          </div>
+        </div>
+        <!-- redes -->
+        <div style="background:#fff;border:1px solid #E4D8C4;border-radius:18px;padding:24px 26px;box-shadow:0 6px 18px rgba(33,4,30,0.04);">
+          <div style="font-size:15px;font-weight:600;margin-bottom:5px;">Seguí a Fundación Red Social</div>
+          <div style="font-size:13px;color:#7C6E5F;line-height:1.5;margin-bottom:16px;">Actividades, documentos, programas y oportunidades para sumarte.</div>
+          <div style="display:flex;gap:12px;">
+            <a href="#" style="flex:1;display:flex;align-items:center;gap:11px;background:#EFE6D6;border:1px solid #E4D6BE;border-radius:12px;padding:13px 16px;">
+              <span style="width:34px;height:34px;border-radius:10px;background:#2E2117;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="#F7F1E7" stroke-width="1.8"/><circle cx="12" cy="12" r="4" stroke="#F7F1E7" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.2" fill="#F7F1E7"/></svg></span>
+              <div><div style="font-size:14px;font-weight:600;color:#33281F;">Instagram</div><div style="font-family:'Hanken Grotesk',sans-serif;font-size:10.5px;color:#A89A88;">@fundacionredsocial</div></div>
+            </a>
+            <a href="#" style="flex:1;display:flex;align-items:center;gap:11px;background:#EFE6D6;border:1px solid #E4D6BE;border-radius:12px;padding:13px 16px;">
+              <span style="width:34px;height:34px;border-radius:10px;background:#2E2117;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="#F7F1E7" stroke-width="1.8"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 0 1 4 0v4M11 17v-7" stroke="#F7F1E7" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+              <div><div style="font-size:14px;font-weight:600;color:#33281F;">LinkedIn</div><div style="font-family:'Hanken Grotesk',sans-serif;font-size:10.5px;color:#A89A88;">/fundacion-red-social</div></div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOCUMENTACION -->
+  <section id="documentacion" style="background:#EFE6D6;border-top:1px solid #E4D8C4;border-bottom:1px solid #E4D8C4;">
+    <div style="max-width:1180px;margin:0 auto;padding:80px 40px;">
+      <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:40px;align-items:center;">
+        <div>
+          <div style="font-family:'Hanken Grotesk',sans-serif;font-size:12px;letter-spacing:0.16em;color:#B3115F;text-transform:uppercase;margin-bottom:16px;">Documentación institucional</div>
+          <h2 style="font-size:38px;font-weight:600;letter-spacing:-0.02em;line-height:1.07;margin:0 0 16px;">La confianza se construye con reglas claras</h2>
+          <p style="font-size:16px;line-height:1.6;color:#5C4F42;margin:0;">Ponemos a disposición la documentación básica de la Fundación y una política de aportes que explica cómo se reciben, administran y comunican las contribuciones.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <sc-for list="{{ documentacion }}" as="doc" hint-placeholder-count="3">
+            <div style="display:flex;align-items:center;gap:16px;background:#fff;border:1px solid #E4D8C4;border-radius:14px;padding:20px 22px;box-shadow:0 4px 12px rgba(33,4,30,0.03);">
+              <span style="width:42px;height:42px;border-radius:11px;background:#EFE6D6;border:1px solid #E4D6BE;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#B3115F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v14H7zM14 3v4h4"/></svg></span>
+              <div style="flex:1;"><div style="font-size:16px;font-weight:600;">{{ doc.title }}</div><div style="font-size:13px;color:#7C6E5F;line-height:1.45;margin-top:3px;">{{ doc.desc }}</div></div>
+              <span style="font-family:'Hanken Grotesk',sans-serif;font-size:11px;color:#B3115F;border:1px solid #E0CDB6;border-radius:9px;padding:8px 13px;white-space:nowrap;">Ver</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASOS -->
+  <section id="casos" style="max-width:1180px;margin:0 auto;padding:92px 40px;">
+    <div style="max-width:680px;margin-bottom:48px;">
+      <div style="font-family:'Hanken Grotesk',sans-serif;font-size:12px;letter-spacing:0.16em;color:#B3115F;text-transform:uppercase;margin-bottom:16px;">Casos de implementación</div>
+      <h2 style="font-size:46px;font-weight:600;letter-spacing:-0.02em;line-height:1.05;margin:0 0 18px;">Donde el método se vuelve capacidad instalada</h2>
+      <p style="font-size:18px;line-height:1.6;color:#5C4F42;margin:0;">Experiencias en las que la metodología se convierte en procesos, herramientas, formación y resultados que quedan en los equipos.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;">
+      <sc-for list="{{ cases }}" as="c" hint-placeholder-count="5">
+        <div style="background:#fff;border:1px solid #E4D8C4;border-radius:18px;padding:28px;box-shadow:0 6px 18px rgba(33,4,30,0.04);display:flex;flex-direction:column;">
+          <div style="display:inline-flex;align-self:flex-start;align-items:center;gap:7px;font-family:'Hanken Grotesk',sans-serif;font-size:10.5px;letter-spacing:0.05em;text-transform:uppercase;background:{{ c.tagBg }};color:{{ c.tagColor }};padding:5px 11px;border-radius:999px;margin-bottom:18px;"><span style="width:5px;height:5px;border-radius:50%;background:{{ c.tagDot }};"></span>{{ c.tag }}</div>
+          <div style="font-size:19px;font-weight:600;letter-spacing:-0.01em;line-height:1.2;margin-bottom:10px;">{{ c.name }}</div>
+          <div style="font-size:14px;line-height:1.6;color:#7C6E5F;">{{ c.desc }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contacto" style="position:relative;overflow:hidden;background:#2E2117;color:#F7F1E7;">
+    <div style="position:absolute;inset:0;background:radial-gradient(80% 110% at 50% 0%, rgba(237,22,134,0.28), transparent 58%);pointer-events:none;"></div>
+    <div style="position:relative;max-width:920px;margin:0 auto;padding:104px 40px;text-align:center;">
+      <div style="font-family:'Hanken Grotesk',sans-serif;font-size:12px;letter-spacing:0.16em;color:#FF9E19;text-transform:uppercase;margin-bottom:24px;">Trabajemos juntos</div>
+      <h2 style="font-size:54px;font-weight:600;letter-spacing:-0.025em;line-height:1.04;margin:0 0 22px;">Construyamos capacidades que quedan</h2>
+      <p style="font-size:20px;line-height:1.55;color:rgba(255,250,242,0.78);margin:0 auto 38px;max-width:620px;">Desde 2017 trabajamos para que gobiernos, organizaciones y equipos respondan mejor a los problemas públicos de su tiempo. Empecemos por un diagnóstico de madurez institucional.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+        <a href="mailto:contacto@redsocial.org" style="background:{{ grad }};color:#fff;font-size:16px;font-weight:600;padding:17px 32px;border-radius:13px;box-shadow:0 14px 32px rgba(237,22,134,0.4);">Solicitar diagnóstico</a>
+        <a href="#sumate" style="background:rgba(255,250,242,0.07);color:#F7F1E7;border:1px solid rgba(255,250,242,0.24);font-size:16px;font-weight:500;padding:17px 32px;border-radius:13px;">Sumate a la Red</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:#241A12;color:#F7F1E7;">
+    <div style="max-width:1180px;margin:0 auto;padding:56px 40px 40px;">
+      <div style="display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;padding-bottom:40px;border-bottom:1px solid rgba(255,250,242,0.1);">
+        <div style="max-width:320px;">
+          <div style="display:inline-flex;background:#F7F1E7;border-radius:11px;padding:10px 15px;margin-bottom:18px;"><img src="assets/logo-red-social.png" alt="Fundación Red Social" style="height:30px;width:auto;display:block;" /></div>
+          <div style="font-size:14px;color:rgba(255,250,242,0.6);line-height:1.6;margin-bottom:18px;">Desde 2017, construimos capacidades sociales, ciudadanas e institucionales que quedan.</div>
+          <div style="display:flex;gap:10px;">
+            <a href="#" style="width:36px;height:36px;border-radius:10px;background:rgba(255,250,242,0.08);border:1px solid rgba(255,250,242,0.16);display:flex;align-items:center;justify-content:center;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="#F7F1E7" stroke-width="1.8"/><circle cx="12" cy="12" r="4" stroke="#F7F1E7" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.2" fill="#F7F1E7"/></svg></a>
+            <a href="#" style="width:36px;height:36px;border-radius:10px;background:rgba(255,250,242,0.08);border:1px solid rgba(255,250,242,0.16);display:flex;align-items:center;justify-content:center;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="#F7F1E7" stroke-width="1.8"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 0 1 4 0v4M11 17v-7" stroke="#F7F1E7" stroke-width="1.8" stroke-linecap="round"/></svg></a>
+          </div>
+        </div>
+        <div style="display:flex;gap:52px;flex-wrap:wrap;">
+          <div><div style="font-family:'Hanken Grotesk',sans-serif;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:#FF9E19;margin-bottom:16px;">Fundación</div><div style="display:flex;flex-direction:column;gap:11px;font-size:14px;color:rgba(255,250,242,0.72);"><a href="#institucional">Institucional</a><a href="#historia">Historia</a><a href="#equipo">Equipo</a></div></div>
+          <div><div style="font-family:'Hanken Grotesk',sans-serif;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:#FF9E19;margin-bottom:16px;">Trabajo</div><div style="display:flex;flex-direction:column;gap:11px;font-size:14px;color:rgba(255,250,242,0.72);"><a href="#metodo">Método</a><a href="#academia">Academia</a><a href="#casos">Casos</a></div></div>
+          <div><div style="font-family:'Hanken Grotesk',sans-serif;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:#FF9E19;margin-bottom:16px;">Participar</div><div style="display:flex;flex-direction:column;gap:11px;font-size:14px;color:rgba(255,250,242,0.72);"><a href="#sumate">Sumate</a><a href="#documentacion">Documentación</a><a href="Portal Red Social.dc.html">Portal</a></div></div>
+          <div><div style="font-family:'Hanken Grotesk',sans-serif;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:#FF9E19;margin-bottom:16px;">Contacto</div><div style="display:flex;flex-direction:column;gap:11px;font-size:14px;color:rgba(255,250,242,0.72);"><span>contacto@redsocial.org</span><span>@fundacionredsocial</span></div></div>
+        </div>
+      </div>
+      <div style="padding-top:24px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:'Hanken Grotesk',sans-serif;font-size:11.5px;color:rgba(255,250,242,0.4);">
+        <span>© 2026 Fundación Red Social · Habilitada por IGJ desde 2017</span>
+        <span>Método API Humana · Argentina</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;Magenta&quot;,&quot;options&quot;:[&quot;Magenta&quot;,&quot;Naranja&quot;],&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { sent:false };
+  startNetwork(canvas){
+    if(!canvas || canvas.__on) return;
+    canvas.__on = true;
+    const ctx = canvas.getContext('2d');
+    let w=0,h=0,dpr=1,nodes=[];
+    const colors=['#ED1686','#FF9E19','#F7F1E7','#ED1686','#FF9E19'];
+    const resize=()=>{
+      dpr=Math.min(window.devicePixelRatio||1,2);
+      const r=canvas.getBoundingClientRect();
+      w=Math.max(r.width,1); h=Math.max(r.height,1);
+      canvas.width=w*dpr; canvas.height=h*dpr;
+      ctx.setTransform(dpr,0,0,dpr,0,0);
+      const N=Math.max(24,Math.min(60,Math.round(w*h/15000)));
+      nodes=Array.from({length:N},()=>({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*0.28,vy:(Math.random()-.5)*0.28,r:Math.random()*1.8+1.1,c:colors[Math.floor(Math.random()*colors.length)]}));
+    };
+    canvas.__resize=resize;
+    resize();
+    const loop=()=>{
+      if(!canvas.isConnected){ canvas.__on=false; return; }
+      ctx.clearRect(0,0,w,h);
+      for(let i=0;i<nodes.length;i++){
+        for(let j=i+1;j<nodes.length;j++){
+          const a=nodes[i],b=nodes[j];
+          const dx=a.x-b.x,dy=a.y-b.y;
+          const d=Math.sqrt(dx*dx+dy*dy);
+          if(d<132){ ctx.globalAlpha=(1-d/132)*0.22; ctx.strokeStyle='#ED1686'; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke(); }
+        }
+      }
+      ctx.globalAlpha=1;
+      for(const n of nodes){
+        n.x+=n.vx; n.y+=n.vy;
+        if(n.x<0||n.x>w)n.vx*=-1;
+        if(n.y<0||n.y>h)n.vy*=-1;
+        ctx.globalAlpha=0.92; ctx.fillStyle=n.c;
+        ctx.beginPath(); ctx.arc(n.x,n.y,n.r,0,7); ctx.fill();
+      }
+      ctx.globalAlpha=1;
+      requestAnimationFrame(loop);
+    };
+    loop();
+  }
+  boot(){ requestAnimationFrame(()=>{ try{ document.querySelectorAll('canvas[data-network]').forEach(c=>this.startNetwork(c)); }catch(e){} }); }
+  componentDidMount(){
+    this.boot();
+    this._rz=()=>{ try{ document.querySelectorAll('canvas[data-network]').forEach(c=>c.__resize&&c.__resize()); }catch(e){} };
+    window.addEventListener('resize', this._rz);
+  }
+  componentDidUpdate(){ this.boot(); }
+  componentWillUnmount(){ window.removeEventListener('resize', this._rz); }
+  ini(name){ return name.split(' ').filter(Boolean).slice(0,2).map(w=>w[0]).join('').toUpperCase(); }
+
+  renderVals(){
+    const grad=this.props.accent==='Naranja'?'#FF9E19':'#ED1686';
+    const stats=[
+      {value:'2017',label:'Año de habilitación formal por la IGJ'},
+      {value:'5',label:'Líneas fundacionales que guían el trabajo'},
+      {value:'14',label:'Documentos técnicos públicos y curados'},
+      {value:'12',label:'Cursos en la academia, en tres niveles'}
+    ];
+    const partners=['Gobiernos provinciales','Organismos públicos','Universidades','Equipos territoriales'];
+    const objeto=[
+      {title:'Desarrollo social',desc:'Programas y herramientas para mejorar capacidades comunitarias e institucionales.',dot:'#ED1686'},
+      {title:'Participación ciudadana',desc:'Dispositivos para escuchar, ordenar demandas y mejorar vínculos con la ciudadanía.',dot:'#FF9E19'},
+      {title:'Políticas públicas',desc:'Investigación aplicada, diseño de procesos, tableros y mejora de la gestión.',dot:'#ED1686'},
+      {title:'Ambiente y territorio',desc:'Cuidado ambiental, servicios urbanos y gestión territorial.',dot:'#FF9E19'},
+      {title:'Ciudades inteligentes',desc:'Integración de datos, servicios, tecnología y capacidades humanas.',dot:'#B8A98F'}
+    ];
+    const tstate={
+      'Histórico':{bg:'rgba(42,19,38,0.07)',color:'#5C4F42',dot:'#7C6E5F'},
+      'Vigente':{bg:'rgba(237,22,134,0.12)',color:'#B3115F',dot:'#ED1686'},
+      'En desarrollo':{bg:'rgba(255,158,25,0.16)',color:'#9A5B00',dot:'#FF9E19'}
+    };
+    const timeline=[
+      {year:'2017',title:'Habilitación institucional',estado:'Histórico',desc:'La IGJ autoriza a funcionar a Fundación Red Social y aprueba su estatuto. Punto de partida formal de la misión.'},
+      {year:'2018',title:'Redes de colaboración',estado:'Histórico',desc:'Construcción de vínculos con personas, organizaciones y equipos interesados en mejorar lo público.'},
+      {year:'2019',title:'Formación y ciudadanía',estado:'Histórico',desc:'Primeras líneas de trabajo orientadas a capacidades, participación y acompañamiento institucional.'},
+      {year:'2020',title:'Adaptación y continuidad',estado:'Histórico',desc:'Aprendizajes sobre digitalización, cercanía, coordinación y respuesta en contextos cambiantes.'},
+      {year:'2021',title:'Del aprendizaje al método',estado:'Histórico',desc:'Ordenamiento de criterios, herramientas y formas de intervención para construir una forma propia de trabajar.'},
+      {year:'2022',title:'Fortalecimiento institucional',estado:'Histórico',desc:'Mayor foco en gestión pública, procesos, equipos técnicos e implementación.'},
+      {year:'2023',title:'Arquitectura institucional',estado:'Histórico',desc:'Una mirada centrada en procesos, datos, roles y capacidad instalada: no piezas sueltas, sino arquitectura.'},
+      {year:'2024',title:'Arquitectura pública integrada',estado:'Vigente',desc:'Metodología para conectar áreas, canales, servicios, datos y equipos. No reemplazamos: ordenamos lo existente.'},
+      {year:'2025',title:'Programas y transferencia',estado:'Vigente',desc:'Capacitación, protocolos, tableros, documentos técnicos y mejora de servicios, con foco en transferencia.'},
+      {year:'2026',title:'Portal, Academia y Comunidad',estado:'En desarrollo',desc:'Plataforma institucional de conocimiento, formación, implementación y participación.'}
+    ].map(t=>{const s=tstate[t.estado];return Object.assign({},t,{stBg:s.bg,stColor:s.color,stDot:s.dot,dot:s.dot});});
+    const valores=[
+      {title:'Participación',desc:'Instituciones que escuchan, integran y construyen con la ciudadanía.'},
+      {title:'Evidencia',desc:'Decisiones basadas en datos, aprendizajes y resultados verificables.'},
+      {title:'Capacidad instalada',desc:'Dejamos herramientas, método y autonomía, no intervenciones decorativas.'},
+      {title:'Transparencia',desc:'Confianza con reglas claras, rendición y trazabilidad.'},
+      {title:'Innovación pública',desc:'La tecnología transforma cuando se integra a procesos, personas y cultura.'},
+      {title:'Cuidado',desc:'Mejora con sensibilidad, respeto por los equipos y mirada humana.'}
+    ];
+    const steps=[
+      {n:'01',title:'Diagnóstico',desc:'Medimos la madurez institucional: gobernanza, procesos, datos, cultura y atención.',dot:'#ED1686'},
+      {n:'02',title:'Diseño',desc:'Definimos el modelo objetivo, reglas, roles y la ruta de mejora priorizada.',dot:'#FF9E19'},
+      {n:'03',title:'Implementación',desc:'Ponemos en marcha procesos, tableros y protocolos con los equipos.',dot:'#ED1686'},
+      {n:'04',title:'Transferencia',desc:'Dejamos capacidades, documentación y activos que sobreviven al proyecto.',dot:'#FF9E19'},
+      {n:'05',title:'Medición',desc:'Indicadores y tableros para leer desempeño, demanda y experiencia.',dot:'#ED1686'},
+      {n:'06',title:'Mejora continua',desc:'Rutinas de seguimiento que sostienen y profundizan los avances.',dot:'#FF9E19'}
+    ];
+    const lineas=[
+      {title:'Desarrollo social y ciudadanía',desc:'Promovemos capacidades para que las instituciones estén más cerca de las personas y respondan mejor a sus necesidades.',tags:'Participación · Atención ciudadana · Territorio · Formación de agentes',dot:'#ED1686'},
+      {title:'Políticas públicas e innovación',desc:'Investigamos, diseñamos e implementamos herramientas para mejorar políticas, procesos y decisiones públicas.',tags:'Arquitectura pública · Gobernanza · Servicios · Tableros · Interoperabilidad',dot:'#FF9E19'},
+      {title:'Ambiente y ciudades inteligentes',desc:'Acompañamos el diseño de políticas y herramientas que mejoren la gestión territorial, ambiental y urbana.',tags:'Servicios urbanos · Datos territoriales · Gestión ambiental · Continuidad',dot:'#B8A98F'},
+      {title:'Formación y transferencia',desc:'Convertimos conocimiento en capacidades sostenibles para equipos, organismos y comunidades.',tags:'Academia · Capacitaciones · Certificación · Protocolos · Comunidades de práctica',dot:'#ED1686'}
+    ];
+    const docs=[
+      {code:'DT-05',cat:'Atención',title:'Atención Ciudadana como Sistema',sum:'Modelo para integrar canales, protocolos, experiencia y trazabilidad.'},
+      {code:'DT-10',cat:'Datos',title:'Tableros de Gestión y Calidad',sum:'Matriz mínima de indicadores para seguimiento ejecutivo y mejora continua.'},
+      {code:'DT-14',cat:'Formación',title:'Academia Pública Digital / LMS',sum:'Arquitectura funcional para cursos, materiales, usuarios y evaluación.'}
+    ];
+    const team=[
+      {name:'Mariano Daniel Volino',role:'Líder de Proyecto',desc:'Lidera el diseño estratégico, la articulación institucional y la construcción metodológica para transformar problemas complejos en hojas de ruta ejecutables.'},
+      {name:'Laura Eugenia Melgarejo',role:'Gobernanza y servicios',desc:'Acompaña la coordinación de procesos institucionales, integración de servicios y fortalecimiento de capacidades para la implementación.'},
+      {name:'Lihuen Mary Bezzo',role:'Procesos, plataformas y formación',desc:'Traduce procesos y necesidades institucionales en herramientas, plataformas y recorridos de formación aplicables.'},
+      {name:'Abril Manessi',role:'Diseño de servicios',desc:'Diseña experiencias, recorridos y servicios centrados en las personas, conectando necesidades ciudadanas con respuestas claras.'},
+      {name:'Victoria Adela Bohl',role:'Capacitación',desc:'Coordina propuestas formativas y dispositivos de capacitación para incorporar criterios comunes y prácticas sostenibles.'},
+      {name:'María Belén Silva',role:'Procesos',desc:'Sistematiza procesos, documenta circuitos y acompaña la mejora operativa para ordenar la implementación.'},
+      {name:'Giuliano Donnes',role:'Sistemas de atención',desc:'Aporta mirada funcional sobre sistemas de atención, canales de respuesta y condiciones operativas.'},
+      {name:'Delfina González Rey',role:'Coordinación operativa',desc:'Acompaña la coordinación operativa de proyectos, seguimiento de tareas, organización documental y consistencia de entregables.'},
+      {name:'Débora Irigo',role:'Vínculo ciudadano y territorio',desc:'Aporta mirada territorial, vínculo con actores y acompañamiento de procesos orientados a mejorar la relación institución–ciudadanía.'}
+    ].map(m=>Object.assign({},m,{ini:this.ini(m.name)}));
+    const comunidad=[
+      {title:'Voluntario/a',desc:'Aportá tiempo, conocimiento, experiencia profesional o apoyo operativo.'},
+      {title:'Adherente',desc:'Acompañá la misión, recibí información y participá de las actividades.'},
+      {title:'Benefactor/a',desc:'Aportes económicos, técnicos o institucionales para sostener programas.'},
+      {title:'Aliado institucional',desc:'Gobiernos, universidades, empresas y organizaciones que impulsan proyectos.'},
+      {title:'Participante',desc:'Agentes y equipos en capacitaciones, diagnósticos o proyectos.'}
+    ];
+    const aportes=[
+      {title:'Aporte libre',desc:'Elegí el monto y acompañá la misión de la Fundación.',dot:'#ED1686'},
+      {title:'Sostener un documento técnico',desc:'Producir y publicar conocimiento abierto.',dot:'#FF9E19'},
+      {title:'Financiar una beca de capacitación',desc:'Acceso a formación para una persona o equipo.',dot:'#ED1686'},
+      {title:'Impulsar un piloto territorial',desc:'Experiencias concretas de mejora y cercanía.',dot:'#FF9E19'},
+      {title:'Alianza de investigación aplicada',desc:'Cofinanciar estudios, guías y herramientas de impacto.',dot:'#B8A98F'}
+    ];
+    const documentacion=[
+      {title:'Estatuto',desc:'Define la existencia, el objeto y las reglas institucionales de la Fundación.'},
+      {title:'Resolución IGJ',desc:'Acredita la autorización formal para funcionar y el reconocimiento institucional.'},
+      {title:'Política de aportes',desc:'Explica qué aportes se reciben, a qué se destinan y cómo se rinden.'}
+    ];
+    const ctag={
+      'Atención ciudadana':{bg:'rgba(237,22,134,0.12)',color:'#B3115F',dot:'#ED1686'},
+      'Territorio':{bg:'rgba(255,158,25,0.16)',color:'#9A5B00',dot:'#FF9E19'},
+      'Servicios':{bg:'rgba(237,22,134,0.12)',color:'#B3115F',dot:'#ED1686'},
+      'Formación':{bg:'rgba(255,158,25,0.16)',color:'#9A5B00',dot:'#FF9E19'},
+      'Gobernanza':{bg:'rgba(42,19,38,0.07)',color:'#5C4F42',dot:'#7C6E5F'}
+    };
+    const cases=[
+      {tag:'Atención ciudadana',name:'Transformación Integral de Atención Ciudadana',desc:'Diagnóstico, rediseño de procesos, canales, tableros y transferencia de capacidades.'},
+      {tag:'Territorio',name:'Programa Territorial de Cercanía Institucional',desc:'Diseño de dispositivo territorial, circuitos operativos, nodos de atención y articulación de servicios.'},
+      {tag:'Servicios',name:'Mejora Integral de Servicios y Experiencia Ciudadana',desc:'Fortalecimiento institucional, capacitación, protocolos, medición y rediseño de experiencia.'},
+      {tag:'Formación',name:'Sistema de Capacitación Pública y Transferencia',desc:'Formación de equipos, diseño pedagógico, contenidos y medición de aprendizaje.'},
+      {tag:'Gobernanza',name:'Modelo de Gobernanza Operativa y Tableros',desc:'Indicadores, rutinas de seguimiento, tableros ejecutivos y toma de decisiones.'}
+    ].map(c=>{const s=ctag[c.tag];return Object.assign({},c,{tagBg:s.bg,tagColor:s.color,tagDot:s.dot});});
+
+    return {
+      grad, stats, partners, objeto, timeline, valores, steps, lineas, docs, team, comunidad, aportes, documentacion, cases,
+      sent: this.state.sent,
+      notSent: !this.state.sent,
+      submitForm: ()=>this.setState({sent:true}),
+      resetForm: ()=>this.setState({sent:false})
+    };
+  }
+}
+</script>
+</body>
+</html>
