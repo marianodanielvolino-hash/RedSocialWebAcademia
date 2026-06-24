@@ -1,4 +1,5 @@
 import { useStore } from './store/useStore'
+import Landing from './components/Landing'
 import Prelogin from './components/Prelogin'
 import Login from './components/Login'
 import Survey from './components/Survey'
@@ -17,6 +18,7 @@ export default function App() {
   const { screen } = useStore()
 
   // Pre-login Screens
+  if (screen === 'landing') return <Landing />
   if (screen === 'prelogin') return <Prelogin />
   if (screen === 'login') return <Login />
   if (screen === 'madurez') return <Survey />

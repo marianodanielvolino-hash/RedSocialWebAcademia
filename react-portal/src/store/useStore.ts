@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 
 export type ScreenType = 
+  | 'landing'
   | 'prelogin' 
   | 'login' 
   | 'madurez' 
@@ -27,7 +28,7 @@ interface AppState {
 }
 
 export const useStore = create<AppState>((set) => ({
-  screen: 'prelogin',
+  screen: 'landing',
   dashView: 'a',
   userName: 'Mariano',
   answers: {},
