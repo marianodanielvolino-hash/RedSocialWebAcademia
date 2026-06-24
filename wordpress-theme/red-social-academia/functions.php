@@ -127,3 +127,33 @@ function frs_render_page_content_or_fallback($fallback_callback) {
         call_user_func($fallback_callback);
     }
 }
+
+function frs_theme_enqueue_portal_assets() {
+    if (is_page_template('page-portal.php')) {
+        // Enqueue React CSS
+        wp_enqueue_style(
+            'frs-portal-css',
+            get_template_directory_uri() . '/assets/css/frs-portal.css',
+            array('frs-google-fonts'),
+            FRS_THEME_VERSION
+        );
+
+        // Enqueue React JS
+        wp_enqueue_script(
+            'frs-portal-js',
+            get_template_directory_uri() . '/assets/js/frs-portal.js',
+            array(),
+            FRS_THEME_VERSION,
+            true
+        );
+        
+        // Hide standard theme header/footer for the React app
+        wp_add_inline_style('frs-portal-css', '
+            .page-template-page-portal .frs-site-header { display: none !important; }
+            .page-template-page-portal .frs-site-footer { display: none !important; }
+            .page-template-page-portal body { background-color: #2E2117 !important; }
+        ');
+    }
+}
+add_action('wp_enqueue_scripts', 'frs_theme_enqueue_portal_assets');
+
