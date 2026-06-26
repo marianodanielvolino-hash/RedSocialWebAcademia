@@ -25,7 +25,39 @@
         const response = await fetch('Landing%20Publica.dc.html', { cache: 'no-store' });
         if (!response.ok) throw new Error('No se pudo cargar la landing');
         let html = await response.text();
-        html = html.replaceAll('assets/logo-red-social.png', 'assets/logo-red-social.svg');
+        const replacements = [
+          ['assets/logo-red-social.png', 'assets/logo-red-social.svg'],
+          ['Fortalecemos instituciones y ciudadanía.', 'Fortalecemos instituciones, comunidades y equipos.'],
+          ['Una organización de la sociedad civil que investiga, diseña, capacita e implementa herramientas para que gobiernos, organismos y comunidades resuelvan mejor los problemas públicos de su tiempo.', 'Una organización de la sociedad civil que acompaña procesos de desarrollo, formación e innovación institucional para que gobiernos, organizaciones y comunidades puedan ordenar desafíos, construir capacidades y sostener mejores formas de trabajo.'],
+          ['Una fundación para fortalecer instituciones y ciudadanía', 'Una fundación para fortalecer lo público, lo social y lo comunitario'],
+          ['Desde 2017 trabajamos para promover el desarrollo social, la participación ciudadana, la investigación aplicada en políticas públicas, el cuidado ambiental y la innovación institucional. Nuestros programas, diagnósticos y documentos técnicos son formas concretas de cumplir ese objeto.', 'Desde 2017 trabajamos para promover el desarrollo social, la participación ciudadana, la formación, el cuidado ambiental y la innovación institucional. Acompañamos procesos que dejan capacidades instaladas: equipos mejor preparados, documentos claros, redes de colaboración y formas de trabajo que puedan sostenerse en el tiempo.'],
+          ['API Humana, en seis movimientos', 'Un modo de trabajar, en seis movimientos'],
+          ['No reemplazamos lo que existe: lo ordenamos y lo conectamos bajo reglas, roles y métricas comunes. De diagnóstico a mejora continua, con transferencia real en el medio.', 'No llegamos con una receta cerrada. Escuchamos, ordenamos lo que ya existe y ayudamos a convertirlo en acuerdos, herramientas y rutinas que los equipos puedan sostener con autonomía.'],
+          ['Políticas públicas', 'Gestión pública y social'],
+          ['políticas públicas', 'gestión pública y social'],
+          ['Doce cursos en tres niveles y catorce documentos técnicos curados: formación y respaldo alineados, para que los equipos incorporen criterios comunes y prácticas sostenibles.', 'Un espacio en desarrollo para convertir aprendizajes, materiales y experiencias en capacidades compartidas. La academia puede crecer por etapas: cursos, documentos técnicos, comunidades de práctica y certificaciones cuando el programa lo requiera.'],
+          ['Trayectos por rol y nivel de madurez', 'Trayectos por rol, territorio o necesidad institucional'],
+          ['Seguimiento de avance y certificación', 'Seguimiento de avance; certificación cuando corresponda'],
+          ['Material alineado a la biblioteca técnica', 'Materiales, guías y documentos reutilizables'],
+          ['Explorar la academia', 'Ver espacio de formación'],
+          ['>Equipo</a>', '>Quiénes somos</a>'],
+          ['>Equipo</div>', '>Quiénes somos</div>'],
+          ['Un equipo interdisciplinario para problemas complejos', 'Personas y capacidades al servicio de una misión'],
+          ['Integramos estrategia, gestión pública, procesos, tecnología, diseño, formación y territorio. Los problemas públicos complejos no se resuelven desde una sola disciplina: requieren método, escucha, coordinación, evidencia y capacidad de implementación.', 'Somos un equipo interdisciplinario que integra estrategia, gestión institucional, procesos, tecnología, diseño, formación y territorio. Trabajamos con una convicción simple: los cambios duraderos necesitan personas, método, escucha y capacidad de implementación.'],
+          ['Gobiernos provinciales\',\'Organismos públicos\',\'Universidades\',\'Equipos territoriales', 'Gobiernos y organismos\',\'Organizaciones sociales\',\'Universidades\',\'Equipos territoriales'],
+          ["{value:'12',label:'Cursos en la academia, en tres niveles'}", "{value:'Academia',label:'Espacio en desarrollo para formación y transferencia'}"],
+          ["{title:'Políticas públicas',desc:'Investigación aplicada, diseño de procesos, tableros y mejora de la gestión.',dot:'#ED1686'}", "{title:'Gestión pública y social',desc:'Investigación aplicada, diseño de procesos, formación y mejora de la gestión.',dot:'#ED1686'}"],
+          ["{title:'Innovación pública',desc:'La tecnología transforma cuando se integra a procesos, personas y cultura.'}", "{title:'Innovación con sentido',desc:'La tecnología transforma cuando se integra a procesos, personas y cultura.'}"],
+          ["{title:'Políticas públicas e innovación',desc:'Investigamos, diseñamos e implementamos herramientas para mejorar políticas, procesos y decisiones públicas.',tags:'Arquitectura pública · Gobernanza · Servicios · Tableros · Interoperabilidad',dot:'#FF9E19'}", "{title:'Gestión pública, social e innovación',desc:'Investigamos, diseñamos e implementamos herramientas para mejorar procesos, servicios, decisiones y capacidades institucionales.',tags:'Gobernanza · Servicios · Formación · Tableros · Interoperabilidad',dot:'#FF9E19'}"],
+          ["{code:'DT-14',cat:'Formación',title:'Academia Pública Digital / LMS',sum:'Arquitectura funcional para cursos, materiales, usuarios y evaluación.'}", "{code:'DT-14',cat:'Formación',title:'Academia Red Social',sum:'Modelo evolutivo para cursos, materiales, usuarios, evaluación y transferencia.'}"],
+          ['Método API Humana · Argentina', 'Método de trabajo · Argentina'],
+          ['API Humana', 'método de trabajo'],
+          ['problemas públicos complejos', 'desafíos públicos, sociales e institucionales'],
+          ['problemas públicos', 'desafíos públicos, sociales e institucionales']
+        ];
+        for (const [from, to] of replacements) {
+          html = html.split(from).join(to);
+        }
         document.open();
         document.write(html);
         document.close();
